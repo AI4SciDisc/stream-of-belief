@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stream-of-belief"
+version = "0.1.0"
+description = "Stream of Belief: eliciting collective intelligence through latent belief dynamics"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [{name = "Yu Yao"}, {name = "Jiayi Dong"}, {name = "Yilun Du"}]
+keywords = ["multi-agent", "latent reasoning", "language models", "collective intelligence"]
+dependencies = [
+  "torch>=2.1",
+  "transformers>=4.45",
+  "numpy",
+  "rich>=13",
+]
+
+[project.optional-dependencies]
+bench = ["datasets>=2.19", "math-verify"]
+viz = ["matplotlib", "pillow"]
+dev = ["pytest"]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2611.21250"
+Repository = "https://github.com/AI4SciDisc/stream-of-belief"
+
+[project.scripts]
+sob = "sob.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sob*"]
